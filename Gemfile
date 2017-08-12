@@ -18,8 +18,19 @@ source 'https://rubygems.org'
  # #2
  group :development do
    # Use sqlite3 as the development database for Active Record
+   gem 'pry-rails'
+   gem 'better_errors'
+   gem 'binding_of_caller'
    gem 'sqlite3'
  end
+
+ group :test do
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'simplecov'
+end
 
  # Use Puma as the app server
  gem 'puma', '~> 3.0'

@@ -1,5 +1,4 @@
 # README
-
+my first time making a rails project on my own.
 ## BLOCIPEDIA
-  my first time making a rails project on my own.
-  
+### this app will allow users to create a wiki page to share them publicly or privately with other collaborators.
