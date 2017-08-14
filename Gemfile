@@ -53,3 +53,5 @@ end
  gem 'bcrypt'
 
  gem 'devise'
+#enables yaml files, 
+ gem 'figaro'
