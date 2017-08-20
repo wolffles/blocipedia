@@ -53,5 +53,7 @@ end
  gem 'bcrypt'
 
  gem 'devise'
-#enables yaml files, 
+#enables yaml files,
  gem 'figaro'
+
+ gem 'rails-controller-testing'
