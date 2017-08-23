@@ -57,3 +57,7 @@ end
  gem 'figaro'
 
  gem 'rails-controller-testing'
+
+ gem 'pundit'
+
+ gem 'bootswatch-rails'
