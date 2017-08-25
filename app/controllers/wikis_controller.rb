@@ -1,6 +1,9 @@
 class WikisController < ApplicationController
+  after_action :verify_authorized
+
   def index
     @wikis = Wiki.all
+    authorize Wiki
   end
 
   def create
@@ -8,6 +11,7 @@ class WikisController < ApplicationController
     @wiki_page.title = params[:wiki][:title]
     @wiki_page.body = params[:wiki][:body]
     @wiki_page.user = current_user
+    authorize @wiki_page
     if @wiki_page.save
       flash[:notice] = "Post was saved."
       redirect_to @wiki_page
@@ -19,16 +23,18 @@ class WikisController < ApplicationController
 
   def new
     @wiki_page = Wiki.new
+    authorize Wiki
   end
 
   def edit
     @wiki_page = Wiki.find(params[:id])
+    authorize @wiki_page
   end
 
   def update
     @wiki_page = Wiki.find(params[:id])
     @wiki_page.assign_attributes(wiki_params)
-
+    authorize @wiki_page
     if @wiki_page.save
       flash[:notice] = "Post was updated."
       redirect_to [@wiki_page]
@@ -39,10 +45,12 @@ class WikisController < ApplicationController
 
   def show
     @wiki_page = Wiki.find(params[:id])
+    authorize @wiki_page
   end
 
   def destroy
     @wiki_page = Wiki.find(params[:id])
+    authorize @wiki_page
     if @wiki_page.destroy
       flash[:notice] = "\"#{@wiki_page.title}\" was deleted successfully."
       redirect_to wikis_path

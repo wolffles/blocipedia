@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_many :wikis, dependent: :destroy
 
+  enum role:[:standard, :premium, :admin]
+  after_initialize {self.role ||= :standard}
+  #self.role = :standard if self.role.nil?
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

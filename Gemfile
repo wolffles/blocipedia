@@ -61,3 +61,5 @@ end
  gem 'pundit'
 
  gem 'bootswatch-rails'
+
+ gem 'pundit'
