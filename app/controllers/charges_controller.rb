@@ -17,9 +17,10 @@ class ChargesController < ApplicationController
      )
 
      flash[:notice] = "Thanks, #{current_user.email}! your payment is much appreciated."
-     # current_user.update_attribute(:role, 'premium') update_attribute is a active_records method, I added both ways just as a reminder to myself.
+     #current_user.update_attribute(:role, 'premium') #update_attribute is a active_records method, I added both ways just as a reminder to myself.
      current_user.role = "premium"
-     redirect_to root_path # or wherever
+     current_user.save!
+     redirect_to account_path # or wherever
 
      # Stripe will send back CardErrors, with friendly messages
      # when something goes wrong.

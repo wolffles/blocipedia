@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :wikis
 
-  get 'downgrading' => 'account#downgrading'
+  post '/downgrading' => 'account#downgrading'
 
   get 'account' => 'account#index'
 

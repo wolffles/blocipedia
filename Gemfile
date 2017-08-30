@@ -66,6 +66,4 @@ source 'https://rubygems.org'
 
  gem 'bootswatch-rails'
 
- gem 'pundit'
-
  gem 'stripe'
