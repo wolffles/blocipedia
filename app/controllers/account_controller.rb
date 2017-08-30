@@ -9,7 +9,7 @@ class AccountController < ApplicationController
     #current_user.role = "standard"
     #current_user.save!
 
-    current_user.update_attribute(:role, "standard")
+    current_user.update_attribute(:role, :standard)
     redirect_to account_path
   end
 end

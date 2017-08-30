@@ -56,15 +56,14 @@ RSpec.describe ChargesController, type: :controller do
 
     it "upgrades user to premium" do
       post :create
-
       expect(@my_user.role).to be(:premium)
     end
 
     it "redirect to wikis if user is already premium" do
-      @my_user.update!(role: "premium")
+      @my_user.update!(role: :premium)
       post :create
 
-      expect(response).to redirect_to(profile_path)
+      expect(response).to redirect_to(account_path)
     end
   end
 end
