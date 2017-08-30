@@ -24,13 +24,17 @@ source 'https://rubygems.org'
    gem 'listen', '~> 3.0.5'
  end
 
- group :development, :test do
-  gem 'rspec-rails'
-  gem 'shoulda'
-  gem 'faker'
-  gem 'factory_girl_rails'
-  gem 'simplecov'
-end
+  group :development, :test do
+    gem 'rspec-rails'
+    gem 'shoulda'
+    gem 'faker'
+    gem 'factory_girl_rails'
+    gem 'simplecov'
+  end
+
+  group :test do
+    gem 'stripe-ruby-mock', '~> 2.4.1', :require => 'stripe_mock'
+  end
 
  # Use Puma as the app server
  gem 'puma', '~> 3.0'
@@ -62,4 +66,4 @@ end
 
  gem 'bootswatch-rails'
 
- gem 'pundit'
+ gem 'stripe'
