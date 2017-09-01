@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+before_action :premium?, only: :new
 
   def create
      # Creates a Stripe Customer object, for associating
@@ -20,7 +21,7 @@ class ChargesController < ApplicationController
      current_user.update_attribute(:role, 'premium') #update_attribute is a active_records method, I added both ways as a reminder to myself.
      #current_user.role = :premium
      #current_user.save!
-     redirect_to account_path 
+     redirect_to account_path
 
      # Stripe will send back CardErrors, with friendly messages
      # when something goes wrong.
@@ -38,4 +39,13 @@ class ChargesController < ApplicationController
       amount: Amount.premium
     }
   end
- end
+
+private
+
+  def premium?
+    if current_user.role == "premium"
+      flash[:notice] = "Hey there buddy, did you know you're already a premium member?"
+      redirect_to account_path
+    end
+  end
+end

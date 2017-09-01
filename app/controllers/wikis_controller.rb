@@ -7,9 +7,8 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki_page = Wiki.new
-    @wiki_page.title = params[:wiki][:title]
-    @wiki_page.body = params[:wiki][:body]
+    #wiki_params private method below
+    @wiki_page = Wiki.new(wiki_params)
     @wiki_page.user = current_user
     authorize @wiki_page
     if @wiki_page.save
@@ -64,7 +63,7 @@ class WikisController < ApplicationController
 
   #method that white lists (allows privilege for) the parameters we need to create comments.
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
   end
 
 end
