@@ -67,3 +67,5 @@ source 'https://rubygems.org'
  gem 'bootswatch-rails'
 
  gem 'stripe'
+
+ gem 'redcarpet'

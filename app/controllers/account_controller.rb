@@ -22,7 +22,7 @@ class AccountController < ApplicationController
 
     def standard?
       if current_user.role == "standard"
-        flash[:notice] = "Hey there buddy, I no offense but you're already the lowest of the low, cant downgrade any further."
+        flash[:notice] = "Hey there buddy, I mean no offense, but you're already the lowest of the low, cant downgrade any further."
         redirect_to account_path
       end
     end
