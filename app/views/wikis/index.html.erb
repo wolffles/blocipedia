@@ -1,5 +1,10 @@
 <h1> Wikiz </h1>
 
+<!-- saving for a future feature
+<%= button_to Wiki.reorder('ordered_by_title') %>
+<%= link_to Wiki.unscoped { Wiki.ordered_by_reverse_created_at } %>
+-->
+
 
 <div class="col-md-8">
     <% @wikis.each do |page| %>
@@ -7,8 +12,8 @@
         <div class="media-body">
           <h4 class="media-heading">
             <%= link_to page.title, page %>
-            <small> <%=  page.body %> </small>
-          <h4>
+            <small> <%=  index_markdown(page.body) %> </small>
+          </h4>
         </div>
       </div>
     <% end %>

@@ -51,12 +51,12 @@ RSpec.describe WikisController, type: :controller do
     #in rails 5 you have to wrap parameters in params
       it "assigns the new wiki to @wiki" do
         post :create, params: {wiki: {title: RandomData.random_sentence, body: RandomData.random_paragraph, user: @my_user}}
-        expect(assigns(:wiki_page)).to eq Wiki.last
+        expect(assigns(:wiki_page)).to eq Wiki.first
       end
 
       it "redirects to the new wiki" do
         post :create, params: {wiki: {title: RandomData.random_sentence, body: RandomData.random_paragraph, user: @my_user}}
-        expect(response).to redirect_to Wiki.last
+        expect(response).to redirect_to Wiki.first
       end
 
 =begin      it "failed to post" do
