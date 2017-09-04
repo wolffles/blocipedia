@@ -1,12 +1,12 @@
 <h1> Wikiz </h1>
 
-<!-- saving for a future feature
-<%= button_to Wiki.reorder('ordered_by_title') %>
-<%= link_to Wiki.unscoped { Wiki.ordered_by_reverse_created_at } %>
--->
 
 
 <div class="col-md-8">
+  <div class='sort'>
+    <%= link_to 'A-Z', wikis_path ,class: 'btn-default btn-xs' %> -
+    <%= link_to 'oldest', wikis_path ,class:'btn-default btn-xs' %>
+  </div>
     <% @wikis.each do |page| %>
       <div class="media">
         <div class="media-body">
