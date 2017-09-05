@@ -1,22 +1,20 @@
 <h1> Wikiz </h1>
 
-<!-- saving for a future feature
-<%= button_to Wiki.reorder('ordered_by_title') %>
-<%= link_to Wiki.unscoped { Wiki.ordered_by_reverse_created_at } %>
--->
 
 
 <div class="col-md-8">
-    <% @wikis.each do |page| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to page.title, page %>
-            <small> <%=  index_markdown(page.body) %> </small>
-          </h4>
-        </div>
-      </div>
-    <% end %>
+  <div class='sort'>
+    <div class='sort'>
+
+      <!-- reads link_to <arbitrary name>, <route_path>(params: {<hash key>: <value goes to controller>}), class: <bootstrap default classes>    -->
+      <%= link_to 'default/newest', wikis_path(params: {sort: 'created_at', direction: 'asc'}) ,class:'btn-default btn-xs' %>
+      <%= link_to 'A-Z', wikis_path(params: {sort: 'title', direction: 'asc'}) ,class: 'btn-default btn-xs' %>
+      <%= link_to 'Z-A', wikis_path(params: {sort: 'title', direction: 'desc'}) ,class:'btn-default btn-xs' %>
+      <%= link_to 'oldest', wikis_path(params: {sort: 'created_at', direction: 'desc'}) ,class:'btn-default btn-xs' %>
+
+  </div>
+  </div>
+    <%= render @wikis %>
 </div>
 
 <div class="col-md-4">

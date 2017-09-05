@@ -2,7 +2,8 @@ class WikisController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @wikis = Wiki.all
+    # here we define the order of the list before its rendered, with the methods `sort column` and `sort_direction` defined in private below
+    @wikis = Wiki.order("LOWER("+sort_column + ") " + sort_direction)
     authorize Wiki
   end
 
@@ -64,6 +65,19 @@ class WikisController < ApplicationController
   #method that white lists (allows privilege for) the parameters we need to create comments.
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
+  end
+
+
+  # sort_column returns a value to to the index action
+  #checks columns of a Wiki, if included pass param, else default
+  def sort_column
+    Wiki.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+
+  # %w creates array of strings
+  # same as above
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 
 end
