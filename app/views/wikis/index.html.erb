@@ -4,19 +4,17 @@
 
 <div class="col-md-8">
   <div class='sort'>
-    <%= link_to 'A-Z', wikis_path ,class: 'btn-default btn-xs' %> -
-    <%= link_to 'oldest', wikis_path ,class:'btn-default btn-xs' %>
+    <div class='sort'>
+
+      <!-- reads link_to <arbitrary name>, <route_path>(params: {<hash key>: <value goes to controller>}), class: <bootstrap default classes>    -->
+      <%= link_to 'default/newest', wikis_path(params: {sort: 'created_at', direction: 'asc'}) ,class:'btn-default btn-xs' %>
+      <%= link_to 'A-Z', wikis_path(params: {sort: 'title', direction: 'asc'}) ,class: 'btn-default btn-xs' %>
+      <%= link_to 'Z-A', wikis_path(params: {sort: 'title', direction: 'desc'}) ,class:'btn-default btn-xs' %>
+      <%= link_to 'oldest', wikis_path(params: {sort: 'created_at', direction: 'desc'}) ,class:'btn-default btn-xs' %>
+
   </div>
-    <% @wikis.each do |page| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to page.title, page %>
-            <small> <%=  index_markdown(page.body) %> </small>
-          </h4>
-        </div>
-      </div>
-    <% end %>
+  </div>
+    <%= render @wikis %>
 </div>
 
 <div class="col-md-4">
