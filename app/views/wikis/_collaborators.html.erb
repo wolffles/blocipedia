@@ -1,0 +1,7 @@
+<%= form_for @emails_string do |f| %> <!-- im not even sure if @emails_strings is the right variable -->
+  <dif class="form-group">
+    <% f.text_field :collaborators, class: 'form-control', placeholder: "email seperated by space example: sample@mail.com AnotherSample@mail.com third@mail.com" %>
+  <div class="form-group">
+     <%= f.submit "Add", class: 'btn btn-success'  %>
+  </div>
+<% end %>
