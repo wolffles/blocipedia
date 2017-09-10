@@ -1,9 +1,8 @@
 class CollaboratorsController < ApplicationController
 
   def create
-      #@invalid, @valid = [],[]
-      #@emails_string = #text collected from form `_collaborators.html.erb`
-
+      @emails_string = collaborator_params[:id]
+      # your turn to turns the email strings into Collaborators
 
       @collaborator = Collaborator.new(collaborator_params)
       if @collaborator.save
@@ -30,7 +29,7 @@ class CollaboratorsController < ApplicationController
 private
 
   def collaborator_params
-    params.require(:collaborator).permit(:wiki_id, :user_id)
+    params.require(:collaborator).permit(:wiki_id, :user_id, :id)
   end
 
   # def add_collaborator(text, wiki_id)

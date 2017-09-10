@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :collaborator, only: [:create, :destroy]
+  resources :collaborators, only: [:new, :create, :destroy]
 
   resources :charges, only: [:new, :create]
 
