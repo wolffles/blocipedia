@@ -1,6 +1,7 @@
 <%= form_for Collaborator.new do |f| %>
   <dif class="form-group">
     <%= f.text_field :id %>
+    <%= f.hidden_field :wiki_id, value: @wiki_page.id %><br>
   <div class="form-group">
     <%= f.submit "Add", class: 'btn btn-success'  %>
   </div>
