@@ -10,5 +10,7 @@
 </div>
 
 <div class="col-md-8">
-  <%= render partial: 'collaborators' %>
+  <h4> Collaborators </h4>
+  <%= render @wiki_page.collaborators %>
+  <%= render partial: 'form_collaborators' %>
 </div>
