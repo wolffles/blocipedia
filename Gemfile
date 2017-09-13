@@ -16,8 +16,6 @@ source 'https://rubygems.org'
 
 
  group :development do
-   # Use sqlite3 as the development database for Active Record
-   gem 'pry-rails'
    gem 'better_errors'
    gem 'binding_of_caller'
    gem 'sqlite3'
@@ -30,6 +28,7 @@ source 'https://rubygems.org'
     gem 'faker'
     gem 'factory_girl_rails'
     gem 'simplecov'
+    gem 'pry-rails'
   end
 
   group :test do

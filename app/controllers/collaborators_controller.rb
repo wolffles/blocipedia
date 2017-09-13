@@ -3,15 +3,12 @@ class CollaboratorsController < ApplicationController
   def create
     emails_string = collaborator_params[:id]
     wiki_id = collaborator_params[:wiki_id]
-    #binding.pry
     invalid, valid = Collaborator.import(emails_string, wiki_id)
-    #binding.pry
     flash[:alert] = "There was an error trying to add \"#{invalid.join(' , ')}\". Did you spell it right?"
     flash[:notice] = "\"#{valid.join(' , ')}\" has been added."
     redirect_to edit_wiki_path(wiki_id)
     # im not going to bother with doing multiple flash messages atm
     # also if Future me has time make the redirect_to a version that has the invalid emails for easy update
-
   end
 
   def destroy
