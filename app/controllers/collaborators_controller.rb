@@ -1,14 +1,5 @@
 class CollaboratorsController < ApplicationController
 
-  # def new
-  #   @emails_strings = collaborator_params[:id]
-  #   @array_emails = @emails_strings.split
-  #
-  # end
-  def index
-    @collaborator = Collaborator.all
-  end
-
   def create
     emails_string = collaborator_params[:id]
     wiki_id = collaborator_params[:wiki_id]
@@ -24,7 +15,7 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
-    @collaborator = Collaborator.find(params[:id])
+    @collaborator = Collaborator.find(params[:emails])
 
     if @collaborator.destroy
       flash[:notice] = "\"#{User.find(@collaborator.user_id).email}\" was successfully removed as collaborator."
