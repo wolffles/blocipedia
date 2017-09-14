@@ -8,7 +8,7 @@ RSpec.describe CollaboratorsController, type: :controller do
       @my_wiki = FactoryGirl.create(:wiki, user: @my_user)
       @collab_user = FactoryGirl.create(:user, email: "collab@gmail.com")
       sign_in @collab_user
-      @my_collaborator = Collaborator.create(user_id: @collab_user.id, wiki_id: 2)
+      @my_collaborator = Collaborator.create(user_id: @collab_user.id, wiki_id: 2, id:3)
     end
 
     describe "POST create" do
@@ -20,9 +20,10 @@ RSpec.describe CollaboratorsController, type: :controller do
 
     describe "DESTROY delete" do
       it "removes the collaborator from Wiki" do
-        # this is not working, I wrote the test to match the method (and the expected) params. Please double check
-        # the destroy method should be matching on user_id and wiki_id
-        delete :destroy, params: { emails: @collab_user.email }
+        @my_wiki = FactoryGirl.create(:wiki, user: @my_user)
+        collaborator = Collaborator.create(user_id: @collab_user.id, wiki_id: @my_wiki.id)
+        collaborator.save!
+        delete :destroy, params:{id: 1}
         count = Wiki.where({id: @my_wiki.id}).size
       end
     end

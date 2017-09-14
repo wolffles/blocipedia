@@ -12,7 +12,7 @@ class CollaboratorsController < ApplicationController
   end
 
   def destroy
-    @collaborator = Collaborator.find(params[:emails])
+    @collaborator = Collaborator.find(params[:id])
 
     if @collaborator.destroy
       flash[:notice] = "\"#{User.find(@collaborator.user_id).email}\" was successfully removed as collaborator."
