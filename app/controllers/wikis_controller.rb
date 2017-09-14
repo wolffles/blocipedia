@@ -3,7 +3,8 @@ class WikisController < ApplicationController
 
   def index
     # here we define the order of the list before its rendered, with the methods `sort column` and `sort_direction` defined in private below
-    @wikis = Wiki.order("LOWER("+sort_column + ") " + sort_direction)
+    #@wikis = Wiki.order("LOWER("+ sort_column + ") " + sort_direction)
+    @wikis = policy_scope(Wiki.order("LOWER("+sort_column + ") " + sort_direction))
     authorize Wiki
   end
 
@@ -28,6 +29,7 @@ class WikisController < ApplicationController
 
   def edit
     @wiki_page = Wiki.find(params[:id])
+    #@collaborators = @wiki_page.collaborators
     authorize @wiki_page
   end
 

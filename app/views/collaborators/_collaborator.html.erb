@@ -1,0 +1,9 @@
+<div class="media-body">
+  <% if collaborator.user_id == nil %>
+     <%= "Unknown " %>
+     <%= link_to 'X    ', collaborator_path(collaborator), data: { confirm: 'Are you sure?' }, :style => "margin-left: 40px", method: :delete %>,
+  <% else %>
+    <%=  User.find(collaborator.user_id).email %>
+    <%= link_to 'X   ', collaborator_path(collaborator), data: { confirm: 'Are you sure?' }, :style => "margin-left: 40px", method: :delete %>,
+  <% end %>
+</div>

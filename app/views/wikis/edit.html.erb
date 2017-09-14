@@ -8,3 +8,9 @@
     <%= render partial: 'form', locals: { wiki: @wiki_page} %>
   </div>
 </div>
+
+<div class="col-md-8">
+  <h4> Collaborators </h4>
+  <%= render @wiki_page.collaborators %>
+  <%= render partial: 'form_collaborators' %>
+</div>
