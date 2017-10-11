@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
 before_action :premium?, only: :new
+before_action :authenticate_user!
 
   def create
      # Creates a Stripe Customer object, for associating

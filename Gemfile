@@ -11,7 +11,10 @@ source 'https://rubygems.org'
  group :production do
    # Use pg as the production database for Active Record
    gem 'pg'
+   #This gem will configure your application to serve static assets so that you do not need to do this manually in a config file.
+   # so that you dont have to add config.serve_static_assets = true to config/application.rb
    gem 'rails_12factor'
+
  end
 
 
@@ -27,7 +30,7 @@ source 'https://rubygems.org'
     gem 'shoulda'
     gem 'faker'
     gem 'factory_girl_rails'
-    gem 'simplecov'
+    gem 'simplecov' # used to help track what tests have been covered.
     gem 'pry-rails'
   end
 

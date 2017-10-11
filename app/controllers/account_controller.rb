@@ -1,5 +1,6 @@
 class AccountController < ApplicationController
   before_action :standard?, only: [:downgrading]
+  before_action :authenticate_user!
 
   def index
   end
