@@ -14,14 +14,17 @@ source 'https://rubygems.org'
    #This gem will configure your application to serve static assets so that you do not need to do this manually in a config file.
    # so that you dont have to add config.serve_static_assets = true to config/application.rb
    gem 'rails_12factor'
-
  end
 
 
  group :development do
    gem 'better_errors'
    gem 'binding_of_caller'
-   gem 'sqlite3'
+   # Use pg as the production database for Active Record
+   gem 'pg'
+   #This gem will configure your application to serve static assets so that you do not need to do this manually in a config file.
+   # so that you dont have to add config.serve_static_assets = true to config/application.rb
+   gem 'rails_12factor'
    gem 'listen', '~> 3.0.5'
  end
 
@@ -40,6 +43,11 @@ source 'https://rubygems.org'
 
  # Use Puma as the app server
  gem 'puma', '~> 3.0'
+ # Use pg as the production database for Active Record
+ gem 'pg'
+ #This gem will configure your application to serve static assets so that you do not need to do this manually in a config file.
+ # so that you dont have to add config.serve_static_assets = true to config/application.rb
+ gem 'rails_12factor'
  # Use SCSS for stylesheets
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
