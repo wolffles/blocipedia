@@ -12,4 +12,4 @@ development:
 
 test:
   <<: *default
-  database: blocipedia
+  database: blocipedia_test

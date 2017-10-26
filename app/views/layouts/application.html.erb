@@ -6,13 +6,25 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
+    <script>
+    var dataworkz = {};
+    dataworkz.report = function(eventName){
+     var event = {event: {name:eventName}};
+     var request = new XMLHttpRequest();
+     request.open('POST', 'https://demo-dataworkz.herokuapp.com/api/events', true)
+     request.setRequestHeader('Content-Type', 'application/json');
+     request.send(JSON.stringify(event));
+    };
+    </script>
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Wikilist", wikis_path %></li>
+      <li><%= link_to "Wikilist", wikis_path  %></li>
+    <li><a href = "/wikis",  onclick="dataworkz.report('about link clicked')">Wikilist</a></li>
       <div class="pull-right user-info">
         <% if user_signed_in? %>
           <%= "#{current_user.email}" %> -
