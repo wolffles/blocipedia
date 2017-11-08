@@ -31,7 +31,6 @@ source 'https://rubygems.org'
   group :development, :test do
     gem 'rspec-rails'
     gem 'shoulda'
-    gem 'faker'
     gem 'factory_girl_rails'
     gem 'simplecov' # used to help track what tests have been covered.
     gem 'pry-rails'
@@ -79,3 +78,5 @@ source 'https://rubygems.org'
  gem 'stripe'
 
  gem 'redcarpet'
+
+ gem 'faker'
