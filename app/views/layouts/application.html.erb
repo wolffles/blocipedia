@@ -23,8 +23,7 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Wikilist", wikis_path  %></li>
-    <li><a href = "/wikis",  onclick="dataworkz.report('about link clicked')">Wikilist</a></li>
+      <li><a href = "/wikis",  onclick="dataworkz.report('about link clicked')">Wikilist</a></li>
       <div class="pull-right user-info">
         <% if user_signed_in? %>
           <%= "#{current_user.email}" %> -
